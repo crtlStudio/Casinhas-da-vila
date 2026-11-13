@@ -1,0 +1,139 @@
+.menu {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 2rem;
+  border-bottom: 1px solid var(--texto);
+}
+
+.menu__logo,
+.menu__destaque,
+.menu__links a {
+  font-size: clamp(0.85rem, 1.3vw, 1.1rem);
+}
+
+.menu__acoes {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  /* afasta os botões da margem direita, aproximando-os do centro */
+  margin-right: clamp(1rem, 8vw, 10rem);
+}
+
+.menu__links {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  list-style: none;
+}
+
+.menu__destaque,
+.menu__links a {
+  transition: opacity 0.2s;
+}
+
+.menu__destaque:hover,
+.menu__links a:hover {
+  opacity: 0.7;
+}
+
+.menu__destaque {
+  background: var(--texto);
+  color: var(--fundo);
+  padding: 0.4em 1.1em;
+  border-radius: 999px;
+}
+
+/* só aparece em mobile */
+.menu__hamburger {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    padding: 0.75rem 1rem;
+  }
+
+  .menu__logo,
+  .menu__destaque,
+  .menu__links a {
+    font-size: 0.75rem;
+  }
+
+  .menu__acoes {
+    gap: 0.75rem;
+    margin-right: 0;
+  }
+
+  /* ---------- botão hambúrguer ---------- */
+  .menu__hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.35rem;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .menu__hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--texto);
+    border-radius: 2px;
+    transition: transform 0.25s, opacity 0.25s;
+  }
+
+  /* as três linhas viram um X quando está aberto */
+  .menu__hamburger--aberto span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu__hamburger--aberto span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu__hamburger--aberto span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* ---------- painel do menu ---------- */
+  .menu__nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: var(--fundo);
+    border-bottom: 1px solid var(--texto);
+  }
+
+  .menu__nav--aberto {
+    display: block;
+  }
+
+  .menu__links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .menu__links a {
+    display: block;
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
+    text-align: right;
+  }
+
+  /* linha a separar cada botão */
+  .menu__links li + li {
+    border-top: 1px solid var(--moldura);
+  }
+}
