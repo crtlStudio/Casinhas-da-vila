@@ -1,3 +1,4 @@
+import castelo from '../../assets/castelo.webp'
 import './PontosInteresse.css'
 
 // distância a partir das Casinhas da Vila
@@ -101,6 +102,78 @@ function PontosInteresse() {
             </ul>
           </section>
         </div>
+
+        <article className="destaque">
+          <figure className="destaque__foto">
+            <img src={castelo} alt="Muralhas e jardins do Castelo de Monção" loading="lazy" />
+            <figcaption className="destaque__fonte">
+              Foto:{' '}
+              <a
+                href="https://commons.wikimedia.org/wiki/File:Mon%C3%A7ao.jpg"
+                target="_blank"
+                rel="noreferrer"
+              >
+                José Antonio Gil Martínez
+              </a>
+              , via Wikimedia Commons (
+              <a
+                href="https://creativecommons.org/licenses/by/2.0/deed.pt"
+                target="_blank"
+                rel="noreferrer"
+              >
+                CC BY 2.0
+              </a>
+              )
+            </figcaption>
+          </figure>
+
+          <div className="destaque__texto">
+            <h2>Castelo de Monção</h2>
+            <p>
+              O <strong>Castelo de Monção</strong>, ou <strong>Fortaleza de Monção</strong>, no
+              Minho, localiza-se na freguesia de Monção e Troviscoso, vila e município de
+              Monção, distrito de Viana do Castelo, em Portugal.
+            </p>
+            <p>
+              Erguido na margem esquerda, a jusante de Melgaço, tinha como função primitiva
+              defender neste trecho a passagem do rio Minho.
+            </p>
+            <p>
+              O Castelo de Monção está classificado como Monumento Nacional desde 1910.
+            </p>
+            <p className="destaque__fonte">
+              Fonte:{' '}
+              <a
+                href="https://pt.wikipedia.org/wiki/Castelo_de_Mon%C3%A7%C3%A3o"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Wikipédia — Castelo de Monção
+              </a>{' '}
+              (
+              <a
+                href="https://creativecommons.org/licenses/by-sa/4.0/deed.pt"
+                target="_blank"
+                rel="noreferrer"
+              >
+                CC BY-SA 4.0
+              </a>
+              )
+            </p>
+          </div>
+        </article>
+
+        <p className="roteiro">
+          <a
+            className="roteiro__link"
+            href="https://www.vagamundos.pt/visitar-moncao-roteiro/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            O que visitar? Siga o roteiro <span aria-hidden="true">→</span>
+          </a>
+          <span className="destaque__fonte">Roteiro do blogue Vagamundos (vagamundos.pt)</span>
+        </p>
       </div>
     </main>
   )
