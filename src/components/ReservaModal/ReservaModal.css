@@ -1,0 +1,65 @@
+.reserva-modal {
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--texto);
+  max-width: calc(100% - 2rem);
+}
+
+/* fundo da página desfocado por trás do modal */
+.reserva-modal::backdrop {
+  background: rgba(29, 59, 58, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* painel com efeito vidro */
+.reserva-modal__painel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 2.5rem 2.5rem 2rem;
+  border-radius: 1.25rem;
+  background: rgba(250, 245, 236, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 40px rgba(29, 59, 58, 0.2);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  text-align: center;
+}
+
+.reserva-modal[open] .reserva-modal__painel {
+  animation: reserva-modal-entrar 0.25s ease-out;
+}
+
+@keyframes reserva-modal-entrar {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+}
+
+.reserva-modal__texto {
+  font-size: 1.05rem;
+  max-width: 22ch;
+}
+
+.reserva-modal__fechar {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: none;
+  border: 0;
+  color: inherit;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.reserva-modal__fechar:hover {
+  opacity: 0.7;
+}

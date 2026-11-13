@@ -11,19 +11,49 @@
 }
 
 .footer__info,
-.footer__links,
 .footer__legal {
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem 1.25rem;
 }
 
-.footer a {
+.footer__info {
+  align-items: center;
+}
+
+/* pontuação do Booking */
+.footer__pontuacao {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.footer__pontuacao strong {
+  padding: 0.15em 0.4em;
+  border: 2px solid #003b95;
+  border-radius: 0.4rem;
+  color: #003b95;
+  font-weight: 700;
+}
+
+/* morada, abre no Google Maps */
+.footer__morada {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
   transition: opacity 0.2s;
 }
 
-.footer a:hover {
+.footer__morada:hover {
   opacity: 0.7;
+}
+
+.footer__morada svg {
+  flex-shrink: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: #1a73e8;
 }
 
 .footer__legal {
@@ -39,10 +69,9 @@
 
   .footer__info {
     flex-direction: column;
-    align-items: center;
   }
 
-  .footer__links,
+  .footer__morada,
   .footer__legal {
     justify-content: center;
   }

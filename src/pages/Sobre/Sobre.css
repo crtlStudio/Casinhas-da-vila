@@ -1,0 +1,235 @@
+.sobre {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  padding: 2rem 1rem;
+}
+
+/* margin: auto centra sem cortar o topo quando o texto é maior que o ecrã */
+.sobre__texto {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 65ch;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.6;
+}
+
+/* ---------- Pontos fortes ---------- */
+.pontos-fortes {
+  margin-top: 0.75rem;
+}
+
+.pontos-fortes h2,
+.comodidades h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+.pontos-fortes__lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+  list-style: none;
+}
+
+.ponto-forte {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--moldura);
+  border-radius: 0.75rem;
+  line-height: 1.35;
+}
+
+.ponto-forte__icone {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--moldura);
+}
+
+.ponto-forte__icone svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.ponto-forte__descricao {
+  font-size: 0.85em;
+  opacity: 0.75;
+}
+
+/* ---------- Comodidades ---------- */
+.comodidades {
+  margin-top: 0.75rem;
+  line-height: 1.4;
+}
+
+.comodidades__principais {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  list-style: none;
+}
+
+.comodidades__principais li {
+  padding: 0.3em 0.9em;
+  border-radius: 999px;
+  background: var(--moldura);
+  font-size: 0.9em;
+}
+
+/* grupos repartidos em colunas, como no Booking */
+.comodidades__grupos {
+  column-width: 14rem;
+  column-gap: 2rem;
+}
+
+.comodidades__grupo {
+  break-inside: avoid;
+  margin-bottom: 1.25rem;
+}
+
+.comodidades__grupo h3 {
+  margin-bottom: 0.3rem;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.comodidades__nota,
+.comodidades__itens {
+  font-size: 0.85em;
+}
+
+.comodidades__nota {
+  opacity: 0.75;
+}
+
+.comodidades__itens {
+  list-style: none;
+}
+
+.comodidades__itens li {
+  position: relative;
+  padding-left: 1.4em;
+}
+
+.comodidades__itens li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+}
+
+/* ---------- Check-in / Check-out ---------- */
+.horario {
+  display: grid;
+  grid-template-columns: minmax(9rem, 1fr) 2fr;
+  gap: 0.25rem 1.5rem;
+  padding: 1rem 0;
+  line-height: 1.4;
+}
+
+.horario + .horario {
+  border-top: 1px solid var(--moldura);
+}
+
+.horario__titulo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.horario__titulo svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.horario__nota {
+  font-size: 0.85em;
+  opacity: 0.75;
+}
+
+/* ---------- Crianças e camas ---------- */
+.criancas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.criancas h4 {
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.criancas h4 + p {
+  margin-top: -0.1rem;
+}
+
+.criancas p + h4 {
+  margin-top: 0.6rem;
+}
+
+.criancas__tabela {
+  border: 1px solid var(--moldura);
+  border-radius: 0.5rem;
+}
+
+.criancas__idade,
+.criancas__linha {
+  padding: 0.5rem 0.75rem;
+}
+
+.criancas__idade {
+  font-weight: 500;
+  border-bottom: 1px solid var(--moldura);
+}
+
+.criancas__linha {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+}
+
+.criancas__linha > span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.criancas__linha svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+/* verde do "Gratuito" no Booking */
+.criancas__linha strong {
+  color: #008234;
+  font-weight: 500;
+}
+
+/* ---------- Booking ---------- */
+.sobre__booking {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .horario {
+    grid-template-columns: 1fr;
+  }
+}

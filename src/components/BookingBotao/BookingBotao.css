@@ -1,0 +1,13 @@
+.booking-botao {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  background: #003b95;
+  color: #fff;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.booking-botao:hover {
+  opacity: 0.7;
+}

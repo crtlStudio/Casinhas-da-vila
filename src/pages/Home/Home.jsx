@@ -1,41 +1,39 @@
-import casa1 from '../../assets/images/casa1.webp'
-import casa2 from '../../assets/images/casa2.webp'
+import { Link } from 'react-router-dom'
+import casa from '../../assets/casa.webp'
+import vila from '../../assets/casa2.webp'
 import './Home.css'
 
-const casas = [
-  {
-    nome: 'Casa I',
-    img: casa1,
-    href: '#casa-1',
-    lado: 'esquerda',
-    // TODO: substituir pela descrição real da casa
-    descricao:
-      'Uma casa acolhedora no coração da vila, com sala ampla, cozinha equipada e um pátio soalheiro para relaxar ao fim do dia.',
-  },
-  {
-    nome: 'Casa II',
-    img: casa2,
-    href: '#casa-2',
-    lado: 'direita',
-    // TODO: substituir pela descrição real da casa
-    descricao:
-      'Um refúgio tranquilo, com quartos luminosos, decoração tradicional e todo o conforto para uma estadia a dois ou em família.',
-  },
+// "ratio" (largura / altura) serve para as duas fotos ficarem com a mesma altura no telemóvel
+const fotos = [
+  { src: casa, alt: 'Fachada das Casinhas da Vila', ratio: 576 / 768 },
+  { src: vila, alt: 'Câmara Municipal de Monção', ratio: 530 / 353 },
 ]
 
 function Home() {
   return (
     <main className="home">
       <section className="casas">
-        {casas.map((casa) => (
-          <article key={casa.nome} className={`casa casa--${casa.lado}`}>
-            <a href={casa.href} className="casa__foto">
-              <img src={casa.img} alt={casa.nome} />
-              <h2>{casa.nome}</h2>
-            </a>
-            <p className="casa__descricao">{casa.descricao}</p>
-          </article>
-        ))}
+        <div className="casas__texto">
+          <p className="casas__descricao">
+            No coração do centro histórico de Monção, a poucos passos do Terreiro, das
+            Muralhas e dos cafés e restaurantes da vila, as Casinhas da Vila convidam a
+            viver de perto a verdadeira vida da nossa vila raiana.
+          </p>
+          <Link to="/comodidades" className="casas__link">
+            Conheça as nossas comodidades <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+
+        <div className="casas__fotos">
+          {fotos.map((foto) => (
+            <img
+              key={foto.alt}
+              src={foto.src}
+              alt={foto.alt}
+              style={{ '--ratio': foto.ratio }}
+            />
+          ))}
+        </div>
       </section>
 
       <section className="hero">

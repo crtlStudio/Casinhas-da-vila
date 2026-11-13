@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import logo from '../../assets/logo.webp'
+import ReservaModal from '../ReservaModal/ReservaModal'
 import './Menu.css'
-
-const reservar = { label: 'Reservar', href: '#reservar' }
 
 // em mobile estes passam para dentro do menu hambúrguer
 const links = [
-  { label: 'Sobre', href: '#sobre' },
+  { label: 'Sobre', to: '/sobre' },
   // TODO: ligar à página/secção dos pontos de interesse
-  { label: 'Pontos de interesse', href: '#pontos-de-interesse' },
+  { label: 'Pontos de interesse', to: '/#pontos-de-interesse' },
 ]
 
 function Menu() {
   const [aberto, setAberto] = useState(false)
+  const [reservaAberta, setReservaAberta] = useState(false)
 
   // fecha o menu com a tecla Escape
   useEffect(() => {
@@ -23,12 +25,18 @@ function Menu() {
 
   return (
     <header className="menu">
-      <a href="/" className="menu__logo">Casinhas da Vila</a>
+      <Link to="/" className="menu__logo">
+        <img src={logo} alt="Casinhas da Vila" />
+      </Link>
 
       <div className="menu__acoes">
-        <a href={reservar.href} className="menu__destaque">
-          {reservar.label}
-        </a>
+        <button
+          type="button"
+          className="menu__destaque"
+          onClick={() => setReservaAberta(true)}
+        >
+          Reservar
+        </button>
 
         <nav
           id="menu-nav"
@@ -37,9 +45,9 @@ function Menu() {
           <ul className="menu__links">
             {links.map((link) => (
               <li key={link.label}>
-                <a href={link.href} onClick={() => setAberto(false)}>
+                <Link to={link.to} onClick={() => setAberto(false)}>
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -58,6 +66,8 @@ function Menu() {
           <span />
         </button>
       </div>
+
+      <ReservaModal aberto={reservaAberta} onFechar={() => setReservaAberta(false)} />
     </header>
   )
 }

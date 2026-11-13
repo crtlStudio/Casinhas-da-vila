@@ -7,75 +7,66 @@
 
 /* ---------- Casas ---------- */
 .casas {
-  /* moldura com altura fixa (60% do ecrã); o resto fica para o texto */
+  /* moldura com altura fixa; o resto fica para o título */
   flex: 0 1 75dvh;
   min-height: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  align-items: center;
   gap: clamp(1rem, 4vw, 4rem);
-  /* largura total, para caberem as fotos e as descrições ao lado */
   /* lado esquerdo mais fechado que o direito */
   --moldura-esq: clamp(1.5rem, 2.5vw, 3.5rem);
   width: calc(100% - 1rem - var(--moldura-esq));
   margin: 0.75rem 1rem 0 var(--moldura-esq);
-  padding: clamp(0.75rem, 2vh, 1.5rem) clamp(1rem, 3vw, 2.5rem) 0.5rem;
+  padding: clamp(0.75rem, 2vh, 1.5rem) clamp(1rem, 3vw, 2.5rem);
   background: var(--moldura);
   border-radius: 1.25rem;
 }
 
-.casa {
-  min-height: 0;
+.casas__texto {
+  flex: 1 1 12rem;
+  min-width: 10rem;
   display: flex;
-  align-items: center;
-  gap: clamp(1rem, 2vw, 2rem);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
-/* Casa I: descrição à esquerda da foto */
-.casa--esquerda {
-  flex-direction: row-reverse;
+.casas__link {
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+  font-weight: 500;
 }
 
-.casa__foto {
-  flex: 0 1 auto;
-  height: 100%;
-  min-width: 0;
-  min-height: 0;
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  justify-items: center;
-  gap: 0.25rem;
+.casas__link span {
+  display: inline-block;
+  transition: transform 0.2s;
 }
 
-.casa img {
-  height: 100%;
-  width: auto;
-  max-width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 1.25rem;
-  transition: transform 0.3s;
+.casas__link:hover span {
+  transform: translateX(4px);
 }
-
-.casa__descricao {
-  flex: 1 1 10rem;
-  min-width: 8rem;
+.casas__descricao {
   /* mesma letra do título e slogan; maior porque a Italianno é pequena */
   font-family: var(--font-script);
   font-size: clamp(1.7rem, min(2.5vw, 4vh), 2.5rem);
   line-height: 1.1;
 }
 
-.casa--esquerda .casa__descricao {
-  text-align: right;
+/* as duas fotos juntas, encostadas à direita */
+.casas__fotos {
+  flex: 0 1 auto;
+  height: 100%;
+  min-width: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
 }
 
-.casa__foto:hover img {
-  transform: scale(1.02);
-}
-
-.casa h2 {
-  font-size: clamp(1.25rem, 3.5vh, 2rem);
-  font-weight: 500;
+.casas__fotos img {
+  height: 100%;
+  width: auto;
+  min-width: 0;
+  object-fit: cover;
+  border-radius: 1.25rem;
 }
 
 /* ---------- Hero ---------- */
@@ -120,37 +111,36 @@
     font-size: clamp(1.75rem, 7.5vw, 2.5rem);
   }
 
-  /* casas uma por baixo da outra */
+  /* fotos em cima, descrição por baixo */
   .casas {
     flex: none;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 1rem;
     width: auto;
     margin: 0 1rem 1rem;
-    padding: 1rem 1rem 0.75rem;
+    padding: 1rem;
   }
 
-  /* descrição por baixo do nome da casa */
-  .casa,
-  .casa--esquerda {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-  }
-
-  .casa__foto {
-    height: auto;
-  }
-
-  .casa__descricao,
-  .casa--esquerda .casa__descricao {
+  .casas__texto {
     flex: none;
+    min-width: 0;
+    align-items: center;
+  }
+
+  .casas__descricao {
     text-align: center;
     font-size: clamp(1.65rem, 7vw, 2.1rem);
   }
 
-  .casa img {
-    width: 100%;
+  .casas__fotos {
     height: auto;
+  }
+
+  /* largura proporcional ao formato, para ficarem com a mesma altura */
+  .casas__fotos img {
+    flex: var(--ratio) 1 0;
+    height: auto;
+    aspect-ratio: var(--ratio);
   }
 }
