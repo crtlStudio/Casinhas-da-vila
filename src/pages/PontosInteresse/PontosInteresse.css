@@ -1,0 +1,84 @@
+.pontos {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  padding: 2rem 1rem;
+}
+
+/* margin: auto centra sem cortar o topo quando a lista é maior que o ecrã */
+.pontos__conteudo {
+  margin: auto;
+  width: 100%;
+  max-width: 66rem;
+}
+
+/* as duas tabelas lado a lado em desktop */
+.pontos__tabelas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: start;
+  gap: 2rem clamp(2rem, 5vw, 4rem);
+}
+
+.pontos h1 {
+  margin-bottom: 1.25rem;
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1;
+  text-align: center;
+}
+
+.pontos__seccao {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.pontos__seccao svg {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.pontos__lista {
+  list-style: none;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+}
+
+.pontos__lista li + li {
+  border-top: 1px solid var(--moldura);
+}
+
+/* cada linha abre o local no Google Maps */
+.pontos__lista a {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  transition: opacity 0.2s;
+}
+
+.pontos__lista a:hover {
+  opacity: 0.7;
+}
+
+.pontos__lista a:hover .pontos__nome {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.pontos__detalhe {
+  flex-shrink: 0;
+  opacity: 0.75;
+}
+
+/* uma tabela por baixo da outra em mobile */
+@media (max-width: 768px) {
+  .pontos__tabelas {
+    grid-template-columns: 1fr;
+  }
+}

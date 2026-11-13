@@ -5,6 +5,7 @@ import CrtlStudio from './components/CrtlStudio/CrtlStudio.jsx'
 import Home from './pages/Home/Home.jsx'
 import Sobre from './pages/Sobre/Sobre.jsx'
 import Comodidades from './pages/Comodidades/Comodidades.jsx'
+import PontosInteresse from './pages/PontosInteresse/PontosInteresse.jsx'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/comodidades" element={<Comodidades />} />
+        <Route path="/pontos-de-interesse" element={<PontosInteresse />} />
       </Routes>
       <CrtlStudio />
       <Footer />

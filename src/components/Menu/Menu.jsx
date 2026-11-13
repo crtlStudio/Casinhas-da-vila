@@ -7,8 +7,7 @@ import './Menu.css'
 // em mobile estes passam para dentro do menu hambúrguer
 const links = [
   { label: 'Sobre', to: '/sobre' },
-  // TODO: ligar à página/secção dos pontos de interesse
-  { label: 'Pontos de interesse', to: '/#pontos-de-interesse' },
+  { label: 'Pontos de interesse', to: '/pontos-de-interesse' },
 ]
 
 function Menu() {
