@@ -2,7 +2,7 @@
   --fundo: #faf5ec;
   --texto: #1d3b3a;
   --slogan: #774516;
-  --moldura: #e8d6c5;
+  --moldura: #e8d1c5;
 
   --font-base: 'Ubuntu', system-ui, sans-serif;
   --font-script: 'Italianno', cursive;
@@ -40,6 +40,24 @@ a {
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
+}
+
+/* Fade in de 3s em tudo: menu, página e rodapé.
+   A página volta a aparecer com fade sempre que se muda de página. */
+.app > * {
+  animation: fade-in 3s ease both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app > * {
+    animation: none;
+  }
 }
 
 /* No telemóvel a página cresce e faz scroll */

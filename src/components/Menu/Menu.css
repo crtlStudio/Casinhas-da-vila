@@ -1,5 +1,9 @@
+/* menu sempre visível no topo, mesmo quando a página faz scroll */
 .menu {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--fundo);
   flex-shrink: 0;
   display: flex;
   justify-content: space-between;

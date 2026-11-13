@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Menu from './components/Menu/Menu.jsx'
 import Footer from './components/Footer/Footer.jsx'
 import CrtlStudio from './components/CrtlStudio/CrtlStudio.jsx'
@@ -8,10 +8,13 @@ import Comodidades from './pages/Comodidades/Comodidades.jsx'
 import PontosInteresse from './pages/PontosInteresse/PontosInteresse.jsx'
 
 function App() {
+  const { pathname } = useLocation()
+
   return (
     <div className="app">
       <Menu />
-      <Routes>
+      {/* key: a página é recriada ao mudar de rota, para o fade in repetir */}
+      <Routes key={pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/comodidades" element={<Comodidades />} />
