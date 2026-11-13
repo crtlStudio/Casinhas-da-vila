@@ -42,10 +42,10 @@ a {
   overflow: hidden;
 }
 
-/* Fade in de 3s em tudo: menu, página e rodapé.
+/* Fade in de 2s em tudo: menu, página e rodapé.
    A página volta a aparecer com fade sempre que se muda de página. */
 .app > * {
-  animation: fade-in 3s ease both;
+  animation: fade-in 2s ease both;
 }
 
 @keyframes fade-in {

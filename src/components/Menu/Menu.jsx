@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import logo from '../../assets/logo.webp'
 import ReservaModal from '../ReservaModal/ReservaModal'
 import './Menu.css'
@@ -44,9 +44,10 @@ function Menu() {
           <ul className="menu__links">
             {links.map((link) => (
               <li key={link.label}>
-                <Link to={link.to} onClick={() => setAberto(false)}>
+                {/* NavLink marca com a classe "active" o link da página atual */}
+                <NavLink to={link.to} onClick={() => setAberto(false)}>
                   {link.label}
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>
